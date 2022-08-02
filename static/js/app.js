@@ -24,4 +24,37 @@ function buildTable(data)
             cell.text(val);
         });
     });
-}
+};
+
+
+// Create function to handle clicks on a button to
+// filter responses
+
+function handleClick() 
+{
+    // Select somthing with a datetime handle in html
+    let date = d3.select('#datetime').property('value');
+
+    // Create new table of filtered data from the original table
+    let filteredData = tableData
+
+    if (date) 
+    {
+        // Apply `filter` to the table data only to keep the 
+        // rows where the `datetime` value matches the filter value
+        filteredData = filteredData.filter(row => row.datetime === date);
+    };
+
+
+    // Rebuild the table using the filtered data
+    // If no date was entered, the filtered data will 
+    // just be the original table
+    buildTable(filteredData);
+};
+
+// Attach an event to listen for in the form button
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+
+// Build the table when the page loads
+buildTable(tableData);
