@@ -61,6 +61,6 @@ While this provides a simple-to-use interface for the user, it does have several
 
 3. Who doesn't love a map? A map with weighted points for each region with UFO sightings that can change as the user filters the data would look spectacular and provide a much better user experience than a simple table. 
 
-4.  ~~Finally, this page clearly needs the X-Files theme song playing on a loop~~ One of the best features of this page is that it does not feature cheesy music like a 1990s Geocities site that would likely be looping the X-Files theme song. However, what would be extremely cool is to change the Jumbotron text from "The Truth Is Out There" to  "Deceive Inveigle Obfuscate" only as the user hovers over the text. 
+4.  ~~Finally, this page clearly needs the X-Files theme song playing on a loop~~ One of the best features of this page is that it does not feature cheesy music like a 1990s Geocities site that would likely be looping the X-Files theme song. ~~However, what would be extremely cool is to change the Jumbotron text from "The Truth Is Out There" to  "Deceive Inveigle Obfuscate" only as the user hovers over the text.~~ Done.
 
 5. I would also like to add a feature to "find the nearest UFO to my location", which would take the user's input location by city/state and find the nearest locations that have had sightings. 
