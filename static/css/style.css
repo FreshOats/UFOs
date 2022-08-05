@@ -1,5 +1,5 @@
 body {
-
+    font-family: 'Courier New';
     color: #f7f7f7;
 }
 
@@ -8,4 +8,53 @@ body {
     background-image: url(../images/nasa.jpg);
     background-size: 100% 100%;
     text-align: center;
+
 }
+
+a {
+    overflow: visible;
+    position: relative;
+    display: inline-block;
+    font-family: 'Courier', serif;
+    font-size: 60px;
+}
+
+a::before,
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0%;
+}
+
+
+a::after {
+    content: attr(data-replace);
+    height: 100%;
+    width: 200%;
+    left: -50%;
+    top: 0;
+    transform-origin: 100% 100%;
+    transform: translate3d(200%, 0, 0);
+    /* transition: transform .3s cubic-bezier(0.7, 0.1, 0.24, 1); */
+    color: #f7f7f7;
+}
+
+
+a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+a:hover::after{
+    transform: translate3d(0,0,0);
+}
+
+a span {
+    display: inline-block;
+    /* transition: transform .3s cubic-bezier(0.7, 0.1, 0.24, 1); */
+}
+
+a:hover span {
+    transform: translate3d(-300%, 0, 0);
+}
+
