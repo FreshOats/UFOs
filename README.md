@@ -52,6 +52,77 @@ When parameters are entered that do not provide any results, the table is return
 
 
 ---
+## Making It Attractive
+Using HTML and CSS, the website offers the classic "Courier" font style, typically associated with the X-Files and conspiracy theorists galore. The fonts were modified slightly to add bold and italics to make the website more appealing to look at. Finally, an Easter Egg was added to the page for those randomly hovering over the header text.  Most of this modification was done in the CSS style sheet, but the corresponding code in the HTML is as follows: 
+
+The following changes were made to the Jumbotron class. The data-replace was added to provide the alternative text when hovered over. 
+```
+  <div class='jumbotron'>
+     <h1><a data-replace="Deceive Inveigle Obfuscate"><span>The Truth Is Out There</span></a></h1>
+  </div>
+```
+
+The corresponding changes were made to the CSS: 
+1. in the body, the Courier font family was applied.
+```
+body {
+    font-family: 'Courier New';
+    color: #f7f7f7;
+}
+```
+
+2.  The anchors and span were adjusted for before and after the hover-event. The Courier font family was additionally applied along with the font size in the anchor within the Jumbotron. 
+```
+a {
+    overflow: visible;
+    position: relative;
+    display: inline-block;
+    font-family: 'Courier', serif;
+    font-size: 60px;
+}
+
+a::before,
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0%;
+}
+```
+
+The content: attr(data-replace) uses the replacement font to take over the header. The transform/translate ensures that the original and replacement texts do not overlap. 
+
+```
+a::after {
+    content: attr(data-replace);
+    height: 100%;
+    width: 200%;
+    left: -50%;
+    top: 0;
+    transform-origin: 100% 100%;
+    transform: translate3d(200%, 0, 0);
+    color: #f7f7f7;
+}
+
+a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+
+a:hover::after{
+    transform: translate3d(0,0,0);
+}
+
+a span {
+    display: inline-block;
+}
+
+a:hover span {
+    transform: translate3d(-300%, 0, 0);
+}
+```
+
+---
 ## Summary
 While this provides a simple-to-use interface for the user, it does have several major limitations. The current website only has data for about 2 months of sightings, but considering a much larger dataset, the limitations still exist. 
 
@@ -61,6 +132,11 @@ While this provides a simple-to-use interface for the user, it does have several
 
 3. Who doesn't love a map? A map with weighted points for each region with UFO sightings that can change as the user filters the data would look spectacular and provide a much better user experience than a simple table. 
 
-4.  ~~Finally, this page clearly needs the X-Files theme song playing on a loop~~ One of the best features of this page is that it does not feature cheesy music like a 1990s Geocities site that would likely be looping the X-Files theme song. However, what would be extremely cool is to change the Jumbotron text from "The Truth Is Out There" to  "Deceive Inveigle Obfuscate" only as the user hovers over the text. 
+4. I would also like to add a feature to "find the nearest UFO to my location", which would take the user's input location by city/state and find the nearest locations that have had sightings. 
 
-5. I would also like to add a feature to "find the nearest UFO to my location", which would take the user's input location by city/state and find the nearest locations that have had sightings. 
+5. ~~Finally, this page clearly needs the X-Files theme song playing on a loop~~ One of the best features of this page is that it does not feature cheesy music like a 1990s Geocities site that would likely be looping the X-Files theme song. ~~However, what would be extremely cool is to change the Jumbotron text from "The Truth Is Out There" to  "Deceive Inveigle Obfuscate" only as the user hovers over the text.~~ Done.
+
+![courierTruth](https://user-images.githubusercontent.com/33167541/183018066-2868e84e-c025-47c9-9ab7-b0eeba55df3f.png)
+
+
+![courierDeceive](https://user-images.githubusercontent.com/33167541/183018089-ce231823-4db5-474e-b774-d95970215594.png)
